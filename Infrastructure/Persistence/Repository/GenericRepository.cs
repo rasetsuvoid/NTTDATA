@@ -36,10 +36,18 @@ namespace Infrastructure.Persistence.Repository
             return await _dbSet.Where(predicate).ToListAsync();
         }
 
+        public virtual async Task<int> AddWithIdAsync(T entity)
+        {
+            _dbSet.Add(entity);
+            await _context.SaveChangesAsync();
+            return entity.Id;
+        }
+
         public virtual async Task AddAsync(T entity)
         {
             _dbSet.Add(entity);
             await _context.SaveChangesAsync();
+            
         }
 
         public virtual async Task UpdateAsync(T entity)

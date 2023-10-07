@@ -1,5 +1,7 @@
-﻿using Domain.Entities;
+﻿using Application.Common.Dtos.Generic;
+using Domain.Entities;
 using Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,26 @@ namespace Infrastructure.Persistence.Repository
         {
         }
         
+        public async Task<Coordinates> GetCoordinates()
+        {
+            try
+            {
+                Coordinates? coordinates = await (from c in _context.Coordinates
+                                         where c.Active == true && c.IsDeleted == false
+                                         orderby c.Id
+                                         select c)
+                                    .FirstOrDefaultAsync();
+
+
+                return coordinates;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 
 }

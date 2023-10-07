@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Infrastructure.Persistence.Seeds;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using System;
@@ -17,5 +18,13 @@ namespace Infrastructure.Persistence
         }
 
         public virtual DbSet<Delivery> Deliveries { get; set; }
+        public virtual DbSet<Coordinates> Coordinates { get; set; }
+        public virtual DbSet<RequestDelivery> RequestDelivery { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Seed();
+        }
     }
 }

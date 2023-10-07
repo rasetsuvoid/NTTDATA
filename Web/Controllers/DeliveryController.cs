@@ -18,7 +18,7 @@ namespace Web.Controllers
         public async Task<IActionResult> CalculateProvisionsAsync(DeliveryRequestDto request)
         {
             var result = await _deliveryService.CalculateProvisionsAsync(request);
-            return Ok(result);
+            return StatusCode((int)result.StatusCode, result);
         }
 
     }

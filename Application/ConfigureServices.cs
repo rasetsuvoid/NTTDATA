@@ -17,8 +17,8 @@ namespace Application
 
             services.AddScoped<ICoordinatesService, CoordinatesService>();
             services.AddScoped<IDeliveryService, DeliveryService>();
+            
 
-            // Registra tu servicio genérico
             services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
 
 

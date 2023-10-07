@@ -13,6 +13,7 @@ namespace Domain.Interfaces
         Task<List<T>> GetAllAsync();
         Task<List<T>> GetWhereAsync(Expression<Func<T, bool>> predicate);
         Task AddAsync(T entity);
+        Task<int> AddWithIdAsync(T entity);
         Task UpdateAsync(T entity);
         Task DeleteAsync(Expression<Func<T, bool>> predicate);
     }

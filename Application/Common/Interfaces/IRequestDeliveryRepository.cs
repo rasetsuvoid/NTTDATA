@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Interfaces
+namespace Application.Common.Interfaces
 {
-    public interface ICoordinatesRepository : IRepository<Coordinates>
+    public interface IRequestDeliveryRepository : IGenericService<RequestDelivery>
     {
-        Task<Coordinates> GetCoordinates();
     }
 }

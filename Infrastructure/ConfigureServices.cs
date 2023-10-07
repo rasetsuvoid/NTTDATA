@@ -1,4 +1,5 @@
-﻿using Domain.Interfaces;
+﻿using Application.Common.Interfaces;
+using Domain.Interfaces;
 using Infrastructure.Persistence;
 using Infrastructure.Persistence.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,8 @@ namespace Infrastructure
           
             services.AddScoped<ICoordinatesRepository, CoordinatesRepository>();
             services.AddScoped<IDeliveryRepository, DeliveryRepository>();
+            services.AddScoped<IRequestDeliveryRepository, RequestDeliveryRepository>();
+
 
             return services;
         }
