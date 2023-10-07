@@ -105,7 +105,7 @@ namespace Application.Services
 
         }
 
-        private int Fibonacci(int n)
+        public int Fibonacci(int n)
         {
             try
             {
@@ -135,7 +135,7 @@ namespace Application.Services
         {
             try
             {
-                if (weather == "Soleado")
+                if (weather.ToLower() == "soleado")
                 {
                     if (time.Hours >= 6 && time.Hours < 12)
                     {
@@ -146,7 +146,7 @@ namespace Application.Services
                         return TimeSpan.FromHours(new Random().Next(3, 5));
                     }
                 }
-                else if (weather == "Lluvioso")
+                else if (weather.ToLower() == "lluvioso")
                 {
                     return TimeSpan.FromHours(new Random().Next(6, 8));
                 }
