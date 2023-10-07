@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,6 @@ namespace Infrastructure.Persistence
             
         }
 
-
+        public virtual DbSet<Delivery> Deliveries { get; set; }
     }
 }

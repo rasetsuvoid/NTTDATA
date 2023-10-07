@@ -19,13 +19,9 @@ namespace Infrastructure
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
                     builder => builder.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
-
-            
-            services.AddScoped<IUnitRepository, UnitRepository>();
-            services.AddScoped<IProvisionRepository, ProvisionRepository>();
+          
+            services.AddScoped<ICoordinatesRepository, CoordinatesRepository>();
             services.AddScoped<IDeliveryRepository, DeliveryRepository>();
-
-
 
             return services;
         }

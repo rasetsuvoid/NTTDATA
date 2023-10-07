@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Persistence.Repository
 {
-    public class UnitRepository : GenericRepository<Unit>, IUnitRepository
+    public class CoordinatesRepository : GenericRepository<Coordinates>, ICoordinatesRepository
     {
-        public UnitRepository(ApplicationDbContext context) : base(context)
+        public CoordinatesRepository(ApplicationDbContext context) : base(context)
         {
         }
         

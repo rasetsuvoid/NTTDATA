@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Application.Common.Dtos.Delivery;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Application.Common.Interfaces
 {
     public interface IDeliveryService : IGenericService<Delivery>
     {
-        
+        Task<DeliveryResponseDto> CalculateProvisionsAsync(DeliveryRequestDto request);
     }
 }

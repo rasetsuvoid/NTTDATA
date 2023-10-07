@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    public class UnitService : GenericService<Unit>, IUnitService
+    public class CoordinatesService : GenericService<Coordinates>, ICoordinatesService
     {
-        private readonly IUnitRepository _repository;
+        private readonly ICoordinatesRepository _repository;
 
-        public UnitService(IUnitRepository repository) : base(repository)
+        public CoordinatesService(ICoordinatesRepository repository) : base(repository)
         {
         }
 

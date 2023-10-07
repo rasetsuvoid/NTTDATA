@@ -10,14 +10,6 @@ namespace Domain.Entities
 {
     public class Delivery : BaseEntity
     {
-        [ForeignKey("Unit")]
-        public int UnitId { get; set; }
-        public Unit Unit { get; set; }
-
-        [ForeignKey("Provision")]
-        public int ProvisionId { get; set; }
-        public Provision Provision { get; set; }
-
         [Required]
         public DateTime DeliveryDate { get; set; }
 

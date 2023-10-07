@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Common.Interfaces
+namespace Domain.Interfaces
 {
-    public interface IUnitService : IGenericService<Unit>
+    public interface ICoordinatesRepository : IRepository<Coordinates>
     {
-        
     }
 }

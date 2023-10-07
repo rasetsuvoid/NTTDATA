@@ -3,43 +3,44 @@ using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    public class GenericService<TEntity> : IGenericService<TEntity> where TEntity : class
+    public class GenericService<T> : IGenericService<T> where T : class
     {
-        private readonly IRepository<TEntity> _repository;
+        protected readonly IRepository<T> _repository;
 
-        public GenericService(IRepository<TEntity> repository)
+        public GenericService(IRepository<T> repository)
         {
             _repository = repository;
         }
 
-        public async Task<TEntity> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
             return await _repository.GetByIdAsync(id);
         }
 
-        public async Task<List<TEntity>> GetAllAsync()
+        public async Task<List<T>> GetAllAsync()
         {
             return await _repository.GetAllAsync();
         }
 
-        public async Task AddAsync(TEntity entity)
+        public async Task AddAsync(T entity)
         {
             await _repository.AddAsync(entity);
         }
 
-        public async Task UpdateAsync(TEntity entity)
+        public async Task UpdateAsync(T entity)
         {
             await _repository.UpdateAsync(entity);
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Expression<Func<T, bool>> predicate)
         {
-            await _repository.DeleteAsync(id);
+            await _repository.DeleteAsync(predicate);
         }
     }
 }

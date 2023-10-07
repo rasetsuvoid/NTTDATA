@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers
 {
-    public class UnitController : BaseController
+    public class CoordinatesController : BaseController
     {
-        private readonly IUnitService _unitService;
+        private readonly ICoordinatesService _unitService;
 
-        public UnitController(IUnitService unitService)
+        public CoordinatesController(ICoordinatesService unitService)
         {
             _unitService = unitService;
         }

@@ -8,15 +8,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Unit : BaseEntity
+    public class Coordinates : BaseEntity
     {
-        [Required]
-        [StringLength(100)]
-        public string Name { get; set; }
-
-        [StringLength(50)]
-        public string Rank { get; set; }
-
         [Required]
         [Column(TypeName = "decimal(9, 6)")]
         public decimal Longitude { get; set; }

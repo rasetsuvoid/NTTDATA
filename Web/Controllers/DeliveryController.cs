@@ -1,4 +1,7 @@
-﻿using Application.Common.Interfaces;
+﻿using Application.Common.Dtos.Delivery;
+using Application.Common.Interfaces;
+using Application.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers
 {
@@ -10,5 +13,13 @@ namespace Web.Controllers
         {
             _deliveryService = deliveryService;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CalculateProvisionsAsync(DeliveryRequestDto request)
+        {
+            var result = await _deliveryService.CalculateProvisionsAsync(request);
+            return Ok(result);
+        }
+
     }
 }

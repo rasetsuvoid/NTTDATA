@@ -15,8 +15,7 @@ namespace Application
         public static IServiceCollection ApplicationServices(this IServiceCollection services)
         {
 
-            services.AddScoped<IUnitService, UnitService>();
-            services.AddScoped<IProvisionService, ProvisionService>();
+            services.AddScoped<ICoordinatesService, CoordinatesService>();
             services.AddScoped<IDeliveryService, DeliveryService>();
 
             // Registra tu servicio genérico

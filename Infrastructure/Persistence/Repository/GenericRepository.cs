@@ -1,4 +1,5 @@
-﻿using Domain.Interfaces;
+﻿using Domain.Entities;
+using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Persistence.Repository
 {
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
         protected readonly ApplicationDbContext _context;
         protected readonly DbSet<T> _dbSet;
@@ -48,14 +49,24 @@ namespace Infrastructure.Persistence.Repository
             await _context.SaveChangesAsync();
         }
 
-        public virtual async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Expression<Func<T, bool>> predicate)
         {
-            var entity = await GetByIdAsync(id);
-            if (entity != null)
+
+            T entity = await _dbSet.Where(predicate).FirstOrDefaultAsync();
+            if (!object.Equals(entity, null))
             {
-                _dbSet.Remove(entity);
-                await _context.SaveChangesAsync();
+                entity.Active = false;
+                entity.IsDeleted = true;
+                entity.UpdateDate = DateTime.Now;
+
+                _context.Update(entity);
+
             }
+            else
+            {
+                throw new Exception("No se encontro el registro");
+            }
+
         }
     }
 }
