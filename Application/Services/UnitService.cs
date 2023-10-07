@@ -11,12 +11,11 @@ namespace Application.Services
 {
     public class UnitService : GenericService<Unit>, IUnitService
     {
-        private readonly IRepository<Unit> _repository;
+        private readonly IUnitRepository _repository;
 
-        public UnitService(IRepository<Unit> repository) : base(repository)
+        public UnitService(IUnitRepository repository) : base(repository)
         {
         }
 
-        
     }
 }

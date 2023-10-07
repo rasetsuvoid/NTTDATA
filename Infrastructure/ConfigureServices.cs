@@ -25,6 +25,8 @@ namespace Infrastructure
             services.AddScoped<IProvisionRepository, ProvisionRepository>();
             services.AddScoped<IDeliveryRepository, DeliveryRepository>();
 
+
+
             return services;
         }
     }

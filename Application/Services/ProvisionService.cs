@@ -11,7 +11,7 @@ namespace Application.Services
 {
     public class ProvisionService : GenericService<Provision>, IProvisionService
     {
-        public ProvisionService(IRepository<Provision> repository) : base(repository)
+        public ProvisionService(IProvisionRepository repository) : base(repository)
         {
         }
 

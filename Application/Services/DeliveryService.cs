@@ -11,7 +11,7 @@ namespace Application.Services
 {
     public class DeliveryService : GenericService<Delivery>, IDeliveryService
     {
-        public DeliveryService(IRepository<Delivery> repository) : base(repository)
+        public DeliveryService(IDeliveryRepository repository) : base(repository)
         {
         }
 
