@@ -31,7 +31,7 @@ namespace DomainTests.Entities
             Assert.AreEqual(1, delivery.CoordinatesId);
             Assert.AreEqual(45.6789M, delivery.DestinationLongitude);
             Assert.AreEqual(-23.4567M, delivery.DestinationLatitude);
-            // Puedes agregar más aserciones para las propiedades restantes según tus necesidades.
+            
         }
     }
 }

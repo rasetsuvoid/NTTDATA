@@ -26,7 +26,7 @@ namespace DomainTests.Entities
                 DeliveryId = 1
             };
 
-            // Act - No es necesario hacer nada en este caso, ya que estamos creando una instancia de RequestDelivery.
+            // Act 
 
             // Assert
             Assert.AreEqual(45.6789M, requestDelivery.DestinationLongitude);
@@ -36,7 +36,7 @@ namespace DomainTests.Entities
             Assert.AreEqual("Soleado", requestDelivery.WeatherType);
             Assert.AreEqual(5, requestDelivery.unitCount);
             Assert.AreEqual(1, requestDelivery.DeliveryId);
-            // Puedes agregar más aserciones para las propiedades restantes según tus necesidades.
+            
         }
     }
 }
