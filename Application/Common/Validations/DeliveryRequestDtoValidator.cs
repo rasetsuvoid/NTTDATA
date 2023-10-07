@@ -20,6 +20,14 @@ namespace Application.Common.Validations
                 .InclusiveBetween(-90, 90)
                 .WithMessage("La latitud debe estar entre -90 y 90 grados.");
 
+            RuleFor(dto => dto.DestinationLatitude)
+                .NotEmpty()
+                .WithMessage("La Latitud es obligatoria.");
+
+            RuleFor(dto => dto.DestinationLongitude)
+                .NotEmpty()
+                .WithMessage("La Longitud es obligatoria.");
+
             RuleFor(dto => dto.CurrentDate)
                 .NotEmpty()
                 .WithMessage("La fecha actual es obligatoria.");

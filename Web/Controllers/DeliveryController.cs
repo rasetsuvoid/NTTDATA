@@ -17,7 +17,7 @@ namespace Web.Controllers
         [HttpPost]
         public async Task<IActionResult> CalculateProvisionsAsync(DeliveryRequestDto request)
         {
-            var result = await _deliveryService.CalculateProvisionsAsync(request);
+            Application.Common.Dtos.Generic.HttpResponse<DeliveryResponseDto> result = await _deliveryService.CalculateProvisionsAsync(request);
             return StatusCode((int)result.StatusCode, result);
         }
 

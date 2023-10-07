@@ -211,7 +211,7 @@ namespace Application.Services
 
                 if (!validationResult.IsValid)
                 {
-                    foreach (var error in validationResult.Errors)
+                    foreach (FluentValidation.Results.ValidationFailure? error in validationResult.Errors)
                     {
                         return $"Propiedad: {error.PropertyName}, Error: {error.ErrorMessage}";
                     }

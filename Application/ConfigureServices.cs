@@ -1,4 +1,5 @@
 ﻿using Application.Common.Interfaces;
+using Application.Common.Mapper;
 using Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -21,6 +22,7 @@ namespace Application
 
             services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
 
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             return services;
         }

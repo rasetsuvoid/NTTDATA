@@ -21,10 +21,10 @@ namespace Infrastructure.Persistence.Repository
             try
             {
                 Coordinates? coordinates = await (from c in _context.Coordinates
-                                         where c.Active == true && c.IsDeleted == false
-                                         orderby c.Id
-                                         select c)
-                                    .FirstOrDefaultAsync();
+                                                 where c.Active == true && c.IsDeleted == false
+                                                 orderby c.Id descending
+                                                 select c)
+                                            .FirstOrDefaultAsync();
 
 
                 return coordinates;
