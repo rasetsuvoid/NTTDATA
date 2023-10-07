@@ -55,7 +55,7 @@ namespace Application.Services
             return response;
         }
 
-        private async Task<string> Validations(CoordinatesRequestDto request)
+        public async Task<string> Validations(CoordinatesRequestDto request)
         {
             try
             {
